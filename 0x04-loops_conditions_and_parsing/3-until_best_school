@@ -2,7 +2,7 @@
 
 # This script displays "Best School" 10 times using an until loop
 
-count=0
+count=1
 
 until [ "$count" -ge 10 ]; do
     echo "Best School"
