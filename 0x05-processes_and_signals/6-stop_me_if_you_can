@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# Find and stop the 4-to_infinity_and_beyond process without using kill or killall
+process_name="4-to_infinity_and_beyond.sh"
+pid=$(pgrep -f "$process_name")
+
+if [ -n "$pid" ]; then
+    echo "Stopping $process_name process with PID $pid"
+    # Send SIGINT signal to gracefully stop the process
+    kill -2 "$pid"
+else
+    echo "$process_name process not found"
+fi
