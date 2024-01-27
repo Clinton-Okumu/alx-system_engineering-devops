@@ -1,13 +1,4 @@
 #!/usr/bin/env bash
+# Kills the process 7-highlander
 
-# Find and kill the 7-highlander process without using kill or killall
-process_name="7-highlander.sh"
-pid=$(pgrep -f "$process_name")
-
-if [ -n "$pid" ]; then
-    echo "Killing $process_name process with PID $pid"
-    # Send SIGKILL signal to forcefully kill the process
-    kill -9 "$pid"
-else
-    echo "$process_name process not found"
-fi
+pkill -f -SIGKILL 7-highlander
