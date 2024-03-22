@@ -1,10 +1,4 @@
-#puppet to kill a process
-
-exec { 'killmenow_process':
-  command     => '/usr/bin/pkill killmenow',
-  path        => ['/bin', '/usr/bin'],
-  refreshonly => true,
-  onlyif      => '/bin/pgrep killmenow',
-  logoutput   => true,
+# Executes a command
+exec { 'pkill killmenow':
+  path => '/usr/bin:/usr/sbin:/bin'
 }
-
