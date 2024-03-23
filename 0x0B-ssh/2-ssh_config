@@ -1,0 +1,3 @@
+Host 518152-web-01
+IdentifyFile ~/.ssh/school
+PasswordAuthentication no
