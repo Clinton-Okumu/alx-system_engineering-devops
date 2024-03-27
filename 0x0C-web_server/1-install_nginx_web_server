@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+sudo apt-get  update -y
+sudo apt-get install nginx -y
+
+# allowing nginx on firewall
+ufw allow 'Nginx HTTP'
+
+# Creating new index
+echo "Hello World!" > /var/www/html/index.nginx-debian.html
+
+#starting nginx
+sudo service nginx start
