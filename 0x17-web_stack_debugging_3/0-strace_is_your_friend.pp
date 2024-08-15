@@ -1,16 +1,7 @@
-# 0-strace_is_your_friend.pp
-# This Puppet manifest fixes the Apache 500 error by ensuring correct permissions and installing missing packages.
+# Fixes Apache 500 error
 
-exec { 'fix-permissions':
-  command => 'chown -R www-data:www-data /var/www/html',
-  onlyif  => 'test "$(stat -c %U /var/www/html)" != "www-data"',
+exec { 'fix-wordpress':
+  command => 'sed -i s/phpp/php/g /var/www/html/wp-settings.php',
+  path    => '/usr/local/bin/:/bin/'
 }
 
-package { 'php-mysql':
-  ensure => installed,
-}
-
-service { 'apache2':
-  ensure  => running,
-  require => Package['php-mysql'],
-}
